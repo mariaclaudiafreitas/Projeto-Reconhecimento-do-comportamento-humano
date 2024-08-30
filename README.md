@@ -1,8 +1,8 @@
 # Projeto Reconhecimento do Comportamento Humano
 
 ### Grupo composto por :
-### - Arthur camaz pinto
 ### - Lukas Souza
+### - Arthur camaz pinto
 ### - Maria Claudia Freitas
 ### - Luiza Concor
 ### - Victor Furtado
