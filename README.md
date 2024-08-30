@@ -2,7 +2,7 @@
 
 ### Grupo composto por :
 ### - Lukas Souza
-### - Arthur camaz pinto
+### - Arthur Camaz Pinto
 ### - Maria Claudia Freitas
 ### - Luiza Conrado
 ### - Victor Furtado
