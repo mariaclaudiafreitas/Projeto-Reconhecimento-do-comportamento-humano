@@ -4,9 +4,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import cv2
-import sys
 
-# Carregar o conjunto de dados FER2013
+# Carregar o conjunto de dados 
 train_dir = 'image/train'
 validation_dir = 'image/validation'
 
@@ -33,19 +32,19 @@ model.add(Dense(5, activation='softmax'))
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Treinar o modelo
-history = model.fit(train_generator, epochs=10, validation_data = validation_generator)
+history = model.fit(train_generator, epochs=35, batch_size=4, validation_data = validation_generator)
 
 # Salvar o modelo treinado
 model.save('emotion_model.h5')
 
 # Carregar o modelo de detecção de rosto
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Carregar o modelo de reconhecimento de emoção
 emotion_model = load_model('emotion_model.h5')
 
 # Capturar o vídeo da câmera
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 while True:
     ret, frame = cap.read()
@@ -62,6 +61,9 @@ while True:
         # Redimensionar a imagem para o tamanho do modelo de reconhecimento de emoção
         roi_gray = cv2.resize(roi_gray, (48, 48))
         
+        roi_gray = np.expand_dims(roi_gray, axis=-1) 
+        roi_gray = np.repeat(roi_gray, 3, axis=-1)
+        
         # Normalizar a imagem
         roi_gray = roi_gray / 255.0
         
@@ -75,7 +77,7 @@ while True:
         emotion = np.argmax(emotion_prediction)
         
         # Imprimir a emoção no terminal
-        print("Emoção:", ["Neutro", "Feliz", "Triste", "Surpreso", "Raivoso"][emotion], file=sys.stdout.buffer, encoding='utf-8')
+        print("Emoção:", ["Neutro", "Feliz", "Triste", "Surpreso", "Raivoso"][emotion])
         
     cv2.imshow("Versao1", frame)
     cv2.waitKey(1)
