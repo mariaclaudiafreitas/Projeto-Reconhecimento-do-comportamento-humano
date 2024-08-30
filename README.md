@@ -1,3 +1,9 @@
-# LuaMAr
+# Projeto Reconhecimento do Comportamento Humano
 
-grupo de Sistemas Embarcados composto por : Arthur, Lukas, Maria Claudia, Luiza e Victor
+### Grupo da disciplina de Sistemas Embarcados composto por :
+### - Arthur camaz pinto
+### - Lukas Souza
+### - Maria Claudia Freitas
+### - Luiza Concor
+### - Victor Furtado
+
