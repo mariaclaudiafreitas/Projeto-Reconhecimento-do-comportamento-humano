@@ -4,6 +4,6 @@
 ### - Lukas Souza
 ### - Arthur camaz pinto
 ### - Maria Claudia Freitas
-### - Luiza Concor
+### - Luiza Conrado
 ### - Victor Furtado
 
